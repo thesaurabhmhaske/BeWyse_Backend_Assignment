@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #d1cccc;
+        }
+        .edit-form {
+            background-color: #fdfbcc;
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .edit-form h2 {
+            font-size: 24px;
+            margin: 0;
+        }
+        .edit-form p {
+            font-size: 16px;
+            margin: 10px 0;
+        }
+        .form-input {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .btn {
+            margin-top: 10px;
+            width: 100%;
+            height: 50px;
+            background-color: #fff;
+            outline: none;
+            border: solid #d1cccc;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+    <form class="edit-form" method="post" action="{% url 'edit' %}">
+        {% csrf_token %}
+        <h2>Edit Profile</h2>
+        <p><strong>Username:</strong> {{username}}</p>
+        <label for="new_username">New Username:</label>
+        <input class="form-input" type="text" id="new_username" name="new_username" required>
+
+        <p><strong>First Name:</strong> {{first_name}}</p>
+        <label for="new_first_name">New First Name:</label>
+        <input class="form-input" type="text" id="new_first_name" name="new_first_name" required>
+
+        <p><strong>Last Name:</strong> {{last_name}}</p>
+        <label for="new_last_name">New Last Name:</label>
+        <input class="form-input" type="text" id="new_last_name" name="new_last_name" required>
+
+        <!-- Add more fields for editing user details here -->
+
+        <button class="btn" type="submit">Save Changes</button>
+    </form>
+</body>
+</html>
